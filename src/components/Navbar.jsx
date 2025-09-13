@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Menu, X, Phone, Mail } from 'lucide-react'
+import logo from '../assets/vaidika_life_sciences_logo.jpeg'
+
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -60,13 +62,13 @@ const Navbar = () => {
             <Link to="/" aria-label="Vaidika Life Sciences home" className="flex items-center space-x-3">
               {!imgError ? (
                 <img
-                  src="/vaidika_life_sciences_logo.jpeg" // served from public/
-                  alt="Vaidika Life Sciences Logo"
-                  className="w-12 h-12 object-contain"
-                  loading="lazy"
-                  decoding="async"
-                  onError={() => setImgError(true)}
-                />
+                src={logo}
+                alt="Vaidika Life Sciences Logo"
+                className="w-12 h-12 object-contain"
+                loading="lazy"
+                decoding="async"
+/>
+
               ) : (
                 <div className="w-12 h-12 bg-gradient-to-br from-primary-500 to-primary-700 rounded-xl flex items-center justify-center shadow-md">
                   <span className="text-white font-bold text-xl">V</span>
