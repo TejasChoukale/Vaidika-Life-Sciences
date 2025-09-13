@@ -1,6 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import { 
   Users, 
   Award, 
@@ -66,24 +66,35 @@ const Home = () => {
       exit={{ opacity: 0 }}
       className="min-h-screen"
     >
-      {/* Hero Section */}
-      <section className="relative py-20 px-4 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary-900 via-primary-800 to-primary-700 opacity-5"></div>
-        <div className="container mx-auto text-center relative z-10">
+      {/* Hero Section: full-bleed pattern */}
+      <section className="full-bleed relative py-20">
+        {/* full background overlay that stretches edge-to-edge */}
+        <div
+          aria-hidden
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(90deg, rgba(3,37,59,1) 0%, rgba(3,105,148,1) 100%)',
+            opacity: 0.9,
+            zIndex: 0,
+          }}
+        />
+
+        {/* inner constrained content */}
+        <div className="inner-max relative z-10 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl md:text-6xl font-heading font-bold text-gray-900 mb-6 leading-tight">
+            <h1 className="hero-heading hero-heading-on-dark mb-6">
               Transforming
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-primary-800">
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-primary-200">
                 Pharmaceutical Education
               </span>
               & Entrepreneurship
             </h1>
             
-            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+            <p className="lead text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
               Empowering Indian college students to become successful pharmapreneurs through 
               expert mentorship, technical training, and comprehensive industry support.
             </p>
@@ -98,7 +109,7 @@ const Home = () => {
               </Link>
               <Link
                 to="/services"
-                className="border-2 border-primary-600 text-primary-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-primary-600 hover:text-white transition-all duration-300"
+                className="border-2 border-white/30 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-primary-800 transition-all duration-300"
               >
                 Explore Services
               </Link>
@@ -117,8 +128,8 @@ const Home = () => {
                 <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-primary-500 to-primary-700 rounded-full flex items-center justify-center">
                   <stat.icon className="text-white" size={28} />
                 </div>
-                <h3 className="text-3xl font-bold text-gray-900 mb-2">{stat.number}</h3>
-                <p className="text-gray-600">{stat.label}</p>
+                <h3 className="text-3xl font-bold text-white mb-2">{stat.number}</h3>
+                <p className="text-white/80">{stat.label}</p>
               </div>
             ))}
           </motion.div>
@@ -126,8 +137,8 @@ const Home = () => {
       </section>
 
       {/* About Section */}
-      <section className="py-20 px-4 bg-white">
-        <div className="container mx-auto">
+      <section className="py-20 bg-white">
+        <div className="inner-max">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -207,8 +218,8 @@ const Home = () => {
       </section>
 
       {/* Services Preview */}
-      <section className="py-20 px-4 bg-gray-50">
-        <div className="container mx-auto">
+      <section className="py-20 bg-gray-50">
+        <div className="inner-max">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -260,8 +271,8 @@ const Home = () => {
       </section>
 
       {/* PMP Program Highlight */}
-      <section className="py-20 px-4 bg-gradient-to-r from-primary-900 to-primary-800 text-white">
-        <div className="container mx-auto text-center">
+      <section className="py-20 bg-gradient-to-r from-primary-900 to-primary-800 text-white">
+        <div className="inner-max text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -306,7 +317,7 @@ const Home = () => {
                 Register for PMP
               </Link>
               <a
-                href="https://lnkd.in/d2K-PDkF"
+                href="https://www.linkedin.com/company/vaidika-life-sciences"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-primary-800 transition-all duration-300"
@@ -319,8 +330,8 @@ const Home = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 px-4 bg-white">
-        <div className="container mx-auto text-center">
+      <section className="py-20 bg-white">
+        <div className="inner-max text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}

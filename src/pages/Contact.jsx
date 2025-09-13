@@ -121,17 +121,17 @@ const Contact = () => {
       className="min-h-screen"
     >
       {/* Hero Section */}
-      <section className="py-20 px-4 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 text-white">
-        <div className="container mx-auto text-center">
+      <section className="full-bleed w-full py-20 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 text-white px-0">
+        <div className="inner-max text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6">
+            <h1 className="hero-heading mb-6">
               Contact Us
             </h1>
-            <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto opacity-90">
+            <p className="lead mb-8 max-w-4xl mx-auto opacity-90">
               Ready to transform your pharmaceutical career? Get in touch with our expert team 
               for personalized guidance and support.
             </p>
@@ -151,8 +151,8 @@ const Contact = () => {
       </section>
 
       {/* Contact Information Cards */}
-      <section className="py-20 px-4 bg-gray-50">
-        <div className="container mx-auto">
+      <section className="py-20 px-6 bg-gray-50">
+        <div className="w-full max-w-screen-2xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -191,8 +191,8 @@ const Contact = () => {
       </section>
 
       {/* Contact Form & Map Section */}
-      <section className="py-20 px-4 bg-white">
-        <div className="container mx-auto">
+      <section className="py-20 px-6 bg-white">
+        <div className="w-full max-w-screen-2xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Form */}
             <motion.div
@@ -446,8 +446,8 @@ const Contact = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 px-4 bg-gray-50">
-        <div className="container mx-auto">
+      <section className="py-20 px-6 bg-gray-50">
+        <div className="w-full max-w-screen-2xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -499,8 +499,8 @@ const Contact = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 text-white">
-        <div className="container mx-auto text-center">
+      <section className="py-20 px-6 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 text-white">
+        <div className="w-full max-w-screen-2xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}

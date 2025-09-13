@@ -70,17 +70,17 @@ const About = () => {
       className="min-h-screen"
     >
       {/* Hero Section */}
-      <section className="py-20 px-4 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 text-white">
-        <div className="container mx-auto text-center">
+      <section className="full-bleed w-full py-20 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 text-white px-0">
+        <div className="inner-max text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6">
+            <h1 className="hero-heading mb-6">
               About Vaidika Life Sciences
             </h1>
-            <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto opacity-90">
+            <p className="lead mb-8 max-w-4xl mx-auto opacity-90">
               A visionary initiative transforming pharmaceutical education and entrepreneurship 
               across India through expert mentorship and comprehensive industry support.
             </p>
@@ -100,8 +100,8 @@ const About = () => {
       </section>
 
       {/* Founder Story */}
-      <section className="py-20 px-4 bg-white">
-        <div className="container mx-auto">
+      <section className="py-20 px-6 bg-white">
+        <div className="w-full max-w-screen-2xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -167,8 +167,8 @@ const About = () => {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-20 px-4 bg-gray-50">
-        <div className="container mx-auto">
+      <section className="py-20 px-6 bg-gray-50">
+        <div className="w-full max-w-screen-2xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -231,8 +231,8 @@ const About = () => {
       </section>
 
       {/* Core Values */}
-      <section className="py-20 px-4 bg-white">
-        <div className="container mx-auto">
+      <section className="py-20 px-6 bg-white">
+        <div className="w-full max-w-screen-2xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -270,8 +270,8 @@ const About = () => {
       </section>
 
       {/* Company Stats */}
-      <section className="py-20 px-4 bg-gradient-to-r from-primary-600 to-primary-800 text-white">
-        <div className="container mx-auto text-center">
+      <section className="py-20 px-6 bg-gradient-to-r from-primary-600 to-primary-800 text-white">
+        <div className="w-full max-w-screen-2xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -309,8 +309,8 @@ const About = () => {
       </section>
 
       {/* Company Culture */}
-      <section className="py-20 px-4 bg-white">
-        <div className="container mx-auto">
+      <section className="py-20 px-6 bg-white">
+        <div className="w-full max-w-screen-2xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -377,8 +377,8 @@ const About = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 px-4 bg-gray-50">
-        <div className="container mx-auto text-center">
+      <section className="py-20 px-6 bg-gray-50">
+        <div className="w-full max-w-screen-2xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}

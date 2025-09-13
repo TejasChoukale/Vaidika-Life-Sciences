@@ -1,3 +1,4 @@
+// Services.jsx
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
@@ -197,40 +198,44 @@ const Services = () => {
       exit={{ opacity: 0 }}
       className="min-h-screen"
     >
-      {/* Hero Section */}
-      <section className="py-20 px-4 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 text-white">
-        <div className="container mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6">
-              Our Services
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto opacity-90">
-              Comprehensive pharmaceutical solutions tailored for regulatory compliance, 
-              technical excellence, and professional development
-            </p>
-            <div className="flex flex-wrap justify-center gap-4 mb-12">
-              <div className="bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full">
-                <span className="font-semibold">Regulatory Compliance</span>
+      {/* Hero Section — full-bleed background with inner constrained content */}
+      <section className="full-bleed w-full py-20 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 text-white px-0">
+        <div className="inner-max">
+          <div className="max-w-4xl mx-auto text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <h1 className="section-title text-white mb-4">Our Services</h1>
+              <p className="lead mb-8 max-w-3xl mx-auto">
+                Comprehensive pharmaceutical solutions tailored for regulatory compliance, 
+                technical excellence, and professional development
+              </p>
+              <div className="flex flex-wrap justify-center gap-4 mb-12">
+                <div className="bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full">
+                  <span className="font-semibold">Regulatory Compliance</span>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full">
+                  <span className="font-semibold">Technical Dossiers</span>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full">
+                  <span className="font-semibold">Professional Training</span>
+                </div>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full">
-                <span className="font-semibold">Technical Dossiers</span>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full">
-                <span className="font-semibold">Professional Training</span>
-              </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
 
-          {/* Stats */}
+      {/* Stats */}
+      <section className="w-full py-8 bg-white">
+        <div className="w-full max-w-screen-2xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16"
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-8"
           >
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
@@ -246,8 +251,8 @@ const Services = () => {
       </section>
 
       {/* Service Categories Filter */}
-      <section className="py-12 px-4 bg-white border-b">
-        <div className="container mx-auto">
+      <section className="w-full py-12 bg-white border-b">
+        <div className="w-full max-w-screen-2xl mx-auto px-6">
           <div className="flex flex-wrap justify-center gap-4">
             {categories.map((category) => (
               <button
@@ -268,8 +273,8 @@ const Services = () => {
       </section>
 
       {/* Services Grid */}
-      <section className="py-20 px-4 bg-gray-50">
-        <div className="container mx-auto">
+      <section className="w-full py-20 bg-gray-50">
+        <div className="w-full max-w-screen-2xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -358,8 +363,8 @@ const Services = () => {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-20 px-4 bg-white">
-        <div className="container mx-auto">
+      <section className="w-full py-20 bg-white">
+        <div className="w-full max-w-screen-2xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -422,38 +427,38 @@ const Services = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 text-white">
-        <div className="container mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-4xl font-heading font-bold mb-6">
-              Ready to Get Started?
-            </h2>
-            <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
-              Let's discuss how our pharmaceutical expertise can help you achieve 
-              regulatory compliance and business success.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                to="/contact"
-                className="bg-white text-primary-700 px-8 py-4 rounded-lg font-semibold text-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center"
-              >
-                Get Free Consultation
-                <ArrowRight className="ml-2" size={20} />
-              </Link>
-              <Link
-                to="/inquiry"
-                className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-primary-700 transition-all duration-300 flex items-center justify-center"
-              >
-                Join PMP Program
-                <Users className="ml-2" size={20} />
-              </Link>
-            </div>
-          </motion.div>
+      <section className="full-bleed w-full py-20 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 text-white px-0">
+        <div className="inner-max">
+          <div className="max-w-4xl mx-auto text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-4xl font-heading font-bold mb-6">Ready to Get Started?</h2>
+              <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
+                Let's discuss how our pharmaceutical expertise can help you achieve 
+                regulatory compliance and business success.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link
+                  to="/contact"
+                  className="bg-white text-primary-700 px-8 py-4 rounded-lg font-semibold text-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center"
+                >
+                  Get Free Consultation
+                  <ArrowRight className="ml-2" size={20} />
+                </Link>
+                <Link
+                  to="/inquiry"
+                  className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-primary-700 transition-all duration-300 flex items-center justify-center"
+                >
+                  Join PMP Program
+                  <Users className="ml-2" size={20} />
+                </Link>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
     </motion.div>

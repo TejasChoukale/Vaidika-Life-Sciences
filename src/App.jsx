@@ -13,7 +13,8 @@ import './App.css'
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+      {/* add w-full and app-root for explicit full width handling */}
+      <div className="min-h-screen w-full app-root bg-gradient-to-br from-slate-50 to-blue-50">
         <Navbar />
         <AnimatePresence mode="wait">
           <Routes>

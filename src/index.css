@@ -1,43 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
-
+/* ===== Reset & Box Model ===== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Inter', sans-serif;
-  line-height: 1.6;
+/* Stabilize viewport and prevent accidental horizontal scroll */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+/* Prevent media from breaking layout */
+img, svg, video, iframe, picture {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===== Utility wrappers ===== */
+.app-no-gutter, .no-gutter {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  box-sizing: border-box;
+}
+
+/* Constrained inner container used for centering content */
+.inner-max, .content-max {
+  width: 100%;
+  max-width: 1280px; /* tweak to taste */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;  /* Tailwind px-6 equivalent */
+  padding-right: 1.5rem;
+  box-sizing: border-box;
+}
+
+/* ===== Robust full-bleed pattern ===== */
+/* ===== SUBTITLE / LEAD VISIBILITY FIX (paste into index.css) ===== */
+
+/* Ensure text inside the full-bleed hero and other dark-bg sections is visible */
+.full-bleed .inner-max p,
+.full-bleed .inner-max .lead,
+.full-bleed .inner-max .lead-on-dark,
+.section-hero .inner-max p,
+.section-hero .inner-max .lead {
+  color: #f8fafc !important;                /* near-white for strong contrast */
+  text-shadow: 0 3px 12px rgba(0,0,0,0.45) !important; /* soft shadow for legibility */
+  line-height: 1.6 !important;              /* breathing room for wrapped lines */
+  font-size: clamp(16px, 1.6vw, 20px) !important; /* responsive readable size */
+  max-width: 72ch !important;               /* keep long lines comfortable to read */
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: block !important;
+  z-index: 20 !important;                   /* put text above decorative overlays */
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* Also target paragraphs that immediately follow your main hero heading */
+.hero-heading + p,
+.hero-heading ~ p,
+.hero-heading + .lead,
+.hero-heading ~ .lead {
+  /* same rules but slightly stronger specificity */
+  color: #ffffff !important;
+  text-shadow: 0 4px 18px rgba(0,0,0,0.5) !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.01em !important;
+}
+
+/* Make sure the overlay/background sits *behind* text */
+.full-bleed > .bg-overlay,
+.full-bleed .bg-overlay,
+.full-bleed > .absolute.bg-overlay {
+  z-index: 0 !important;
+  pointer-events: none;
+}
+
+/* Ensure inner-max content sits in front */
+.full-bleed .inner-max,
+.full-bleed .inner-max * {
+  position: relative;
+  z-index: 20;
+}
+
+/* Prevent clipping of shadows and descenders */
+.full-bleed { overflow: visible !important; }
+
+/* Friendly fallback for other dark sections: any section with "bg-" + dark color */
+section[class*="bg-"][class*="primary"],
+section[class*="bg-"][class*="900"],
+section[class*="bg-"][class*="800"] {
+  color: inherit;
+}
+
+
+/* ===== Typography (your original choices preserved) ===== */
 .font-heading {
   font-family: 'Poppins', sans-serif;
+  font-weight: 700;
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
+.hero-heading {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: clamp(32px, 5.6vw, 72px);
+  line-height: 1.03;
+  color: #0f172a;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
+.hero-heading-on-dark {
+  color: #fff !important;
+  text-shadow: 0 8px 24px rgba(0,0,0,0.45);
 }
 
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
+.section-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: clamp(24px, 3.2vw, 40px);
+  color: #0f172a;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #0ea5e9;
-  border-radius: 4px;
+.lead {
+  font-size: clamp(16px, 1.6vw, 20px);
+  color: #4b5563;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #0284c7;
+/* Accessibility helper */
+.no-pad { padding-left: 0 !important; padding-right: 0 !important; }
+
+/* Small targeted fix: ensure app wrapper spans viewport (fix for right whitespace) */
+.min-h-screen, .app-root {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box;
 }
+
+/* Smooth scroll & custom scrollbar */
+html { scroll-behavior: smooth; }
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: #0ea5e9; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #0284c7; }
