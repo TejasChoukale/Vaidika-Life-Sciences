@@ -35,15 +35,15 @@ const Navbar = () => {
           <div className="flex items-center space-x-6">
             <div className="flex items-center space-x-2 text-sm">
               <Phone size={16} />
-              <span>+91 94214 41032</span>
+              <span>+91 9892249478</span>
             </div>
             <div className="flex items-center space-x-2 text-sm">
               <Mail size={16} />
-              <span>info@vaidikalifesciences.com</span>
+              <span>project@vaidikalifesciences.com</span>
             </div>
           </div>
           <div className="text-accent-400 text-sm">
-            Empowering Pharma Professionals Since 2024
+            Empowering Pharma Professionals.
           </div>
         </div>
       </div>

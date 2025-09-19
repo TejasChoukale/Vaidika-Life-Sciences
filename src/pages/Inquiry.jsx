@@ -25,10 +25,10 @@ const Inquiry = () => {
         experience: data.experience,
         interest: data.interest,
         message: data.message,
-        to_email: 'info@vaidikalifesciences.com'
+        to_email: 'project@vaidikalifesciences.com'
       }
 
-      // Replace these with your actual EmailJS credentials
+      // EmailJS credentials
       await emailjs.send(
         'service_d3md64e', // EmailJS service ID
         'template_z4sjsie', // EmailJS template ID
@@ -174,7 +174,7 @@ const Inquiry = () => {
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
                         <BookOpen className="inline mr-2" size={16} />
-                        Course/Qualification *
+                        Qualification *
                       </label>
                       <select
                         {...register('course', { required: 'Course is required' })}

@@ -33,21 +33,24 @@ const Contact = () => {
     setSubmitStatus(null)
 
     try {
+      // Map contact form fields to match inquiry template structure
       const templateParams = {
         from_name: data.fullName,
         from_email: data.email,
-        phone: data.phone,
-        subject: data.subject,
+        phone: data.phone || 'Not provided',
+        course: 'Contact Form', // Static value since this is from contact page
+        experience: 'N/A', // Not applicable for contact form
+        interest: data.subject, // Map subject to interest field
         message: data.message,
-        to_email: 'info@vaidikalifesciences.com'
+        to_email: 'project@vaidikalifesciences.com'
       }
 
-      // Replace with your EmailJS credentials
+      // Use same EmailJS credentials as Inquiry form
       await emailjs.send(
-        'YOUR_SERVICE_ID',
-        'YOUR_CONTACT_TEMPLATE_ID',
+        'service_d3md64e', // Your service ID
+        'template_z4sjsie', // Your existing inquiry template ID
         templateParams,
-        'YOUR_USER_ID'
+        '84mtcLykrc-7b6G5C' // Your user ID
       )
 
       setSubmitStatus('success')
@@ -64,14 +67,14 @@ const Contact = () => {
     {
       icon: Phone,
       title: 'Phone Number',
-      details: '+91 94214 41032',
+      details: '+91 9892249478',
       description: 'Available 9 AM - 6 PM (Mon-Fri)',
       color: 'from-green-500 to-green-600'
     },
     {
       icon: Mail,
       title: 'Email Address',
-      details: 'info@vaidikalifesciences.com',
+      details: 'project@vaidikalifesciences.com',
       description: 'We respond within 24 hours',
       color: 'from-blue-500 to-blue-600'
     },
@@ -176,13 +179,13 @@ const Contact = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 text-center"
+                className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 text-center min-w-[280px]"
               >
                 <div className={`w-16 h-16 mx-auto mb-4 bg-gradient-to-r ${info.color} rounded-full flex items-center justify-center`}>
                   <info.icon className="text-white" size={28} />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{info.title}</h3>
-                <p className="text-gray-800 font-medium mb-2">{info.details}</p>
+                <p className="text-gray-800 font-medium mb-2 text-sm break-words break-all max-w-full whitespace-normal">{info.details}</p>
                 <p className="text-gray-600 text-sm">{info.description}</p>
               </motion.div>
             ))}
@@ -520,7 +523,7 @@ const Contact = () => {
                 className="bg-white text-primary-700 px-8 py-4 rounded-lg font-semibold text-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center"
               >
                 <Phone className="mr-2" size={20} />
-                Call Now: +91 94214 41032
+                Call Now: +91 9892249478
               </a>
               <a
                 href="mailto:info@vaidikalifesciences.com"
