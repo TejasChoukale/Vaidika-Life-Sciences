@@ -16,6 +16,7 @@ html, body, #root {
   margin: 0;
   padding: 0;
   width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -37,52 +38,66 @@ img, svg, video, iframe, picture {
   box-sizing: border-box;
 }
 
-/* Constrained inner container used for centering content */
+/* FIXED: Constrained inner container used for centering content */
 .inner-max, .content-max {
-  width: 100%;
-  max-width: 1280px; /* tweak to taste */
+  width: 100%;                    /* Changed from min-width: 100vw */
+  max-width: 1200px;             /* Added max-width for large screens */
   margin-left: auto;
-  margin-right: auto;
-  padding-left: 1.5rem;  /* Tailwind px-6 equivalent */
+  margin-right: auto;            /* Added margin-right for centering */
+  padding-left: 1.5rem;
   padding-right: 1.5rem;
   box-sizing: border-box;
 }
 
-/* ===== Robust full-bleed pattern ===== */
-/* ===== SUBTITLE / LEAD VISIBILITY FIX (paste into index.css) ===== */
+/* Alternative full-width container without padding */
+.full-width-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-/* Ensure text inside the full-bleed hero and other dark-bg sections is visible */
+/* ===== Robust full-bleed pattern ===== */
+.full-bleed {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow: visible;
+}
+
+/* ===== SUBTITLE / LEAD VISIBILITY FIX ===== */
 .full-bleed .inner-max p,
 .full-bleed .inner-max .lead,
 .full-bleed .inner-max .lead-on-dark,
 .section-hero .inner-max p,
 .section-hero .inner-max .lead {
-  color: #f8fafc !important;                /* near-white for strong contrast */
-  text-shadow: 0 3px 12px rgba(0,0,0,0.45) !important; /* soft shadow for legibility */
-  line-height: 1.6 !important;              /* breathing room for wrapped lines */
-  font-size: clamp(16px, 1.6vw, 20px) !important; /* responsive readable size */
-  max-width: 72ch !important;               /* keep long lines comfortable to read */
+  color: #f8fafc !important;
+  text-shadow: 0 3px 12px rgba(0,0,0,0.45) !important;
+  line-height: 1.6 !important;
+  font-size: clamp(16px, 1.6vw, 20px) !important;
+  max-width: 72ch !important;
   margin-left: auto !important;
   margin-right: auto !important;
   display: block !important;
-  z-index: 20 !important;                   /* put text above decorative overlays */
+  z-index: 20 !important;
   -webkit-font-smoothing: antialiased !important;
   -moz-osx-font-smoothing: grayscale !important;
 }
 
-/* Also target paragraphs that immediately follow your main hero heading */
 .hero-heading + p,
 .hero-heading ~ p,
 .hero-heading + .lead,
 .hero-heading ~ .lead {
-  /* same rules but slightly stronger specificity */
   color: #ffffff !important;
   text-shadow: 0 4px 18px rgba(0,0,0,0.5) !important;
   font-weight: 500 !important;
   letter-spacing: 0.01em !important;
 }
 
-/* Make sure the overlay/background sits *behind* text */
 .full-bleed > .bg-overlay,
 .full-bleed .bg-overlay,
 .full-bleed > .absolute.bg-overlay {
@@ -90,25 +105,19 @@ img, svg, video, iframe, picture {
   pointer-events: none;
 }
 
-/* Ensure inner-max content sits in front */
 .full-bleed .inner-max,
 .full-bleed .inner-max * {
   position: relative;
   z-index: 20;
 }
 
-/* Prevent clipping of shadows and descenders */
-.full-bleed { overflow: visible !important; }
-
-/* Friendly fallback for other dark sections: any section with "bg-" + dark color */
 section[class*="bg-"][class*="primary"],
 section[class*="bg-"][class*="900"],
 section[class*="bg-"][class*="800"] {
   color: inherit;
 }
 
-
-/* ===== Typography (your original choices preserved) ===== */
+/* ===== Typography ===== */
 .font-heading {
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
@@ -139,18 +148,25 @@ section[class*="bg-"][class*="800"] {
   color: #4b5563;
 }
 
-/* Accessibility helper */
-.no-pad { padding-left: 0 !important; padding-right: 0 !important; }
+/* ===== Additional Fixes ===== */
+.no-pad { 
+  padding-left: 0 !important; 
+  padding-right: 0 !important; 
+}
 
-/* Small targeted fix: ensure app wrapper spans viewport (fix for right whitespace) */
+/* FIXED: Ensure all containers span viewport correctly */
 .min-h-screen, .app-root {
-  width: 100% !important;
-  max-width: 100% !important;
+  width: 100%;
+  max-width: 100%;
   box-sizing: border-box;
+  overflow-x: hidden;  /* Prevent horizontal scroll */
 }
 
 /* Smooth scroll & custom scrollbar */
-html { scroll-behavior: smooth; }
+html { 
+  scroll-behavior: smooth;
+  overflow-x: hidden; /* Extra protection against horizontal scroll */
+}
 
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: #f1f1f1; }
