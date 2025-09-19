@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
@@ -28,6 +28,12 @@ const Contact = () => {
   
   const { register, handleSubmit, formState: { errors }, reset } = useForm()
 
+  // Initialize EmailJS when component mounts
+  useEffect(() => {
+    // Initialize EmailJS with your public key
+    emailjs.init('84mtcLykrc-7b6G5C')
+  }, [])
+
   const onSubmit = async (data) => {
     setIsSubmitting(true)
     setSubmitStatus(null)
@@ -45,12 +51,12 @@ const Contact = () => {
         to_email: 'project@vaidikalifesciences.com'
       }
 
-      // Use same EmailJS credentials as Inquiry form
+      // Use emailjs.send with proper initialization (no user ID needed)
       await emailjs.send(
-        'service_d3md64e', // Your service ID
-        'template_z4sjsie', // Your existing inquiry template ID
-        templateParams,
-        '84mtcLykrc-7b6G5C' // Your user ID
+        'service_d3md64e', // EmailJS service ID
+        'template_z4sjsie', // EmailJS template ID
+        templateParams
+        // Note: No need to pass user ID here after initialization
       )
 
       setSubmitStatus('success')
