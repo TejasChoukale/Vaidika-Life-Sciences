@@ -333,11 +333,11 @@ const Inquiry = () => {
                 <div className="space-y-3">
                   <div className="flex items-center space-x-3">
                     <Phone size={18} />
-                    <span>+91 94214 41032</span>
+                    <span>+91 9892249478</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <Mail size={18} />
-                    <span>info@vaidikalifesciences.com</span>
+                    <span>project@vaidikalifesciences.com</span>
                   </div>
                 </div>
               </div>
