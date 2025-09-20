@@ -476,7 +476,7 @@ const Contact = () => {
             {[
               {
                 question: "How quickly can you respond to inquiries?",
-                answer: "We respond to all inquiries within 24 hours during business days. For urgent matters, please call us directly at +91 94214 41032."
+                answer: "We respond to all inquiries within 24 hours during business days. For urgent matters, please call us directly at +91 9892249478."
               },
               {
                 question: "What is the Personal Mentorship Program?",
