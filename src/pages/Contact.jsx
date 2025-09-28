@@ -48,7 +48,7 @@ const Contact = () => {
         experience: 'N/A', // Not applicable for contact form
         interest: data.subject, // Map subject to interest field
         message: data.message,
-        to_email: 'project@vaidikalifesciences.com'
+        to_email: 'admin@vaidikalifesciences.com'
       }
 
       // Use emailjs.send with proper initialization (no user ID needed)
@@ -80,7 +80,7 @@ const Contact = () => {
     {
       icon: Mail,
       title: 'Email Address',
-      details: 'project@vaidikalifesciences.com',
+      details: 'admin@vaidikalifesciences.com',
       description: 'We respond within 24 hours',
       color: 'from-blue-500 to-blue-600'
     },
@@ -532,7 +532,7 @@ const Contact = () => {
                 Call Now: +91 9892249478
               </a>
               <a
-                href="mailto:info@vaidikalifesciences.com"
+                href="mailto:admin@vaidikalifesciences.com"
                 className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-primary-700 transition-all duration-300 flex items-center justify-center"
               >
                 <Mail className="mr-2" size={20} />

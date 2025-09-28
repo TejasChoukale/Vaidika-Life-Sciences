@@ -38,16 +38,18 @@ const Services = () => {
       id: 1,
       category: 'regulatory',
       icon: Shield,
-      title: 'Regulatory Compliance Services',
-      shortDesc: 'Support for formulation, API, and packaging units to comply with global standards',
-      fullDesc: 'Comprehensive regulatory compliance support for pharmaceutical companies to meet international standards including EU-GMP, US-FDA, and WHO-GMP requirements.',
+      title: "Regulatory Affairs & Compliance",
+      shortDesc: "Support for formulation, API, and packaging units to comply with global standards",
+      fullDesc: "Comprehensive regulatory compliance support for pharmaceutical companies to meet international standards including EU-GMP, US-FDA, and WHO-GMP requirements.",
       features: [
-        'EU-GMP Compliance Support',
-        'US-FDA Regulatory Guidance',
-        'WHO-GMP Standards Implementation',
-        'Quality System Development',
-        'Regulatory Strategy Planning',
-        'Documentation Review'
+        "EU-GMP Compliance Support",
+        "US-FDA Regulatory Guidance",
+        "WHO-GMP Standards Implementation",
+        "Quality System Development",
+        "Regulatory Strategy & Dossier Submission (CTD, eCTD, ACTD & regional formats, lifecycle management, regulatory intelligence)",
+        "Regulatory Audit Support (EU-GMP, USFDA, WHO-GMP, ANVISA, TGA, INVIMA)",
+        "Market Access & Regulatory Intelligence (pipeline analysis, pricing & reimbursement support, regulatory monitoring)",
+        "Documentation Review"
       ],
       benefits: [
         'Global Market Access',

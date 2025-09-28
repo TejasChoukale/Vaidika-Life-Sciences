@@ -25,7 +25,7 @@ const Inquiry = () => {
         experience: data.experience,
         interest: data.interest,
         message: data.message,
-        to_email: 'project@vaidikalifesciences.com'
+        to_email: 'admin@vaidikalifesciences.com'
       }
 
       // EmailJS credentials
@@ -337,7 +337,7 @@ const Inquiry = () => {
                   </div>
                   <div className="flex items-center space-x-3">
                     <Mail size={18} />
-                    <span>project@vaidikalifesciences.com</span>
+                    <span>admin@vaidikalifesciences.com</span>
                   </div>
                 </div>
               </div>

@@ -39,11 +39,11 @@ const Navbar = () => {
             </div>
             <div className="flex items-center space-x-2 text-sm">
               <Mail size={16} />
-              <span>project@vaidikalifesciences.com</span>
+              <span>admin@vaidikalifesciences.com</span>
             </div>
           </div>
           <div className="text-accent-400 text-sm">
-            Empowering Pharma Professionals.
+            “From Land to Launch – Integrated Technical, Regulatory & Business Solutions for Global Pharma.”
           </div>
         </div>
       </div>
