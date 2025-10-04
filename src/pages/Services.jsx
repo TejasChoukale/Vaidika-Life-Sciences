@@ -2,12 +2,12 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { 
-  Shield, 
-  BookOpen, 
-  Search, 
-  Users, 
-  Package, 
+import {
+  Shield,
+  BookOpen,
+  Search,
+  Users,
+  Package,
   Award,
   CheckCircle,
   ArrowRight,
@@ -22,168 +22,207 @@ import {
   Eye
 } from 'lucide-react'
 
+const services = [
+  // A. Regulatory Affairs Support
+  {
+    id: 'regulatory-affairs',
+    category: 'regulatory',
+    icon: Shield,
+    title: 'Regulatory Affairs Support',
+    shortDesc: 'Preparation & submission of CTD/eCTD dossiers (ANDA, NDA, DMF, MA).',
+    fullDesc:
+      'A. Regulatory Affairs Support\n1. Preparation & submission of CTD/eCTD dossiers (ANDA, NDA, DMF, MA).\n2. Global regulatory strategy (US FDA, EMA, MHRA, WHO, TGA, CDSCO, GCC, etc.).\n3. Lifecycle management: variations, renewals, labeling, post-approval changes.\n4. Gap analysis & regulatory intelligence.',
+    features: [
+      'Preparation & submission of CTD/eCTD dossiers (ANDA, NDA, DMF, MA).',
+      'Global regulatory strategy (US FDA, EMA, MHRA, WHO, TGA, CDSCO, GCC, etc.).',
+      'Lifecycle management: variations, renewals, labeling, post-approval changes.',
+      'Gap analysis & regulatory intelligence.'
+    ],
+    benefits: ['Global market access', 'Faster approvals', 'Reduced regulatory risk'],
+    timeline: '4-16 weeks',
+    color: 'from-blue-500 to-blue-700'
+  },
+
+  // B. Quality & Compliance Services
+  {
+    id: 'quality-compliance',
+    category: 'support',
+    icon: FileText,
+    title: 'Quality & Compliance Services',
+    shortDesc: 'QMS (Quality Management System) development & implementation.',
+    fullDesc:
+      'B. Quality & Compliance Services\n1. QMS (Quality Management System) development & implementation.\n2. Drafting, reviewing & updating SOPs, Policies, and Work Instructions.\n3. GxP compliance support (GMP, GLP, GDP, GCP).\n4. Audit readiness & mock inspections (USFDA, EMA, MHRA, WHO audits).\n5. CAPA (Corrective & Preventive Actions) management.',
+    features: [
+      'QMS (Quality Management System) development & implementation.',
+      'Drafting, reviewing & updating SOPs, Policies, and Work Instructions.',
+      'GxP compliance support (GMP, GLP, GDP, GCP).',
+      'Audit readiness & mock inspections (USFDA, EMA, MHRA, WHO audits).',
+      'CAPA (Corrective & Preventive Actions) management.'
+    ],
+    benefits: ['Improved compliance', 'Audit success', 'Operational robustness'],
+    timeline: '3-12 weeks',
+    color: 'from-orange-500 to-orange-700'
+  },
+
+  // C. Pharmaceutical Development Support
+  {
+    id: 'pharma-dev',
+    category: 'technical',
+    icon: BookOpen,
+    title: 'Pharmaceutical Development Support',
+    shortDesc: 'Formulation development & technology transfer.',
+    fullDesc:
+      'C. Pharmaceutical Development Support\n1. Formulation development & technology transfer.\n2. Process optimization & scale-up support.\n3. Analytical method development & validation.\n4. Stability study design & review as per ICH guidelines.\n5. Technical dossier writing (CMC, QOS, Module 3).',
+    features: [
+      'Formulation development & technology transfer.',
+      'Process optimization & scale-up support.',
+      'Analytical method development & validation.',
+      'Stability study design & review as per ICH guidelines.',
+      'Technical dossier writing (CMC, QOS, Module 3).'
+    ],
+    benefits: ['Robust product development', 'Regulatory-ready documentation'],
+    timeline: '6-20 weeks',
+    color: 'from-green-500 to-green-700'
+  },
+
+  // D. Manufacturing & Operational Excellence
+  {
+    id: 'manufacturing',
+    category: 'technical',
+    icon: Package,
+    title: 'Manufacturing & Operational Excellence',
+    shortDesc: 'Facility design review for GMP compliance.',
+    fullDesc:
+      'D. Manufacturing & Operational Excellence\n1. Facility design review for GMP compliance.\n2. Equipment qualification (IQ, OQ, PQ).\n3. Utility qualification (HVAC, Water System, Compressed Air).\n4. Tech transfer documentation & execution support.\n5. Lean manufacturing & cost optimization projects.',
+    features: [
+      'Facility design review for GMP compliance.',
+      'Equipment qualification (IQ, OQ, PQ).',
+      'Utility qualification (HVAC, Water System, Compressed Air).',
+      'Tech transfer documentation & execution support.',
+      'Lean manufacturing & cost optimization projects.'
+    ],
+    benefits: ['GMP-compliant facilities', 'Improved throughput', 'Lower costs'],
+    timeline: '4-20 weeks',
+    color: 'from-teal-500 to-teal-700'
+  },
+
+  // E. Pharmacovigilance & Drug Safety
+  {
+    id: 'pharmacovigilance',
+    category: 'technical',
+    icon: Eye,
+    title: 'Pharmacovigilance & Drug Safety',
+    shortDesc: 'Setup of pharmacovigilance system.',
+    fullDesc:
+      'E. Pharmacovigilance & Drug Safety\n1. Setup of pharmacovigilance system.\n2. Case processing & safety data management.\n3. Signal detection & risk management plans.\n4. Periodic safety update reports (PSURs/PBRERs).\n5. Global safety compliance (EudraVigilance, FDA FAERS).',
+    features: [
+      'Setup of pharmacovigilance system.',
+      'Case processing & safety data management.',
+      'Signal detection & risk management plans.',
+      'Periodic safety update reports (PSURs/PBRERs).',
+      'Global safety compliance (EudraVigilance, FDA FAERS).'
+    ],
+    benefits: ['Patient safety', 'Regulatory compliance', 'Global reporting readiness'],
+    timeline: '4-12 weeks',
+    color: 'from-purple-500 to-purple-700'
+  },
+
+  // F. Training & Capability Building
+  {
+    id: 'training-capability',
+    category: 'training',
+    icon: Users,
+    title: 'Training & Capability Building',
+    shortDesc: 'GxP training programs for employees.',
+    fullDesc:
+      'F. Training & Capability Building\n1. GxP training programs for employees.\n2. Data integrity training.\n3. Audit & inspection handling workshops.\n4. Customized technical training (QMS, Regulatory, PV).',
+    features: [
+      'GxP training programs for employees.',
+      'Data integrity training.',
+      'Audit & inspection handling workshops.',
+      'Customized technical training (QMS, Regulatory, PV).'
+    ],
+    benefits: ['Skilled staff', 'Audit readiness', 'Improved compliance'],
+    timeline: '1-8 weeks',
+    color: 'from-indigo-500 to-indigo-700'
+  },
+
+  // G. Market Access & Strategic Consulting
+  {
+    id: 'market-access',
+    category: 'support',
+    icon: Target,
+    title: 'Market Access & Strategic Consulting',
+    shortDesc: 'Market entry strategy for regulated & emerging markets.',
+    fullDesc:
+      'G. Market Access & Strategic Consulting\n1. Market entry strategy for regulated & emerging markets.\n2. Competitor intelligence & product lifecycle planning.\n3. Global product launch support.\n4. Licensing & partnering advisory.',
+    features: [
+      'Market entry strategy for regulated & emerging markets.',
+      'Competitor intelligence & product lifecycle planning.',
+      'Global product launch support.',
+      'Licensing & partnering advisory.'
+    ],
+    benefits: ['Improved market positioning', 'Strategic launch support'],
+    timeline: '4-12 weeks',
+    color: 'from-yellow-500 to-yellow-600'
+  },
+
+  // H. Computer System Validation (CSV) & Data Integrity
+  {
+    id: 'csv',
+    category: 'support',
+    icon: Shield,
+    title: 'Computer System Validation (CSV) & Data Integrity',
+    shortDesc: 'Validation strategy (GAMP 5, 21 CFR Part 11, Annex 11)',
+    fullDesc:
+      'H. Computer System Validation (CSV) & Data Integrity\n1. Validation strategy (GAMP 5, 21 CFR Part 11, Annex 11)\n2. URS, FS, IQ, OQ, PQ, UAT & validation reports\n3. Data integrity audits & remediation (ALCOA+)\n4. Training on CSV & data integrity principles',
+    features: [
+      'Validation strategy (GAMP 5, 21 CFR Part 11, Annex 11)',
+      'URS, FS, IQ, OQ, PQ, UAT & validation reports',
+      'Data integrity audits & remediation (ALCOA+)',
+      'Training on CSV & data integrity principles'
+    ],
+    benefits: ['Validated systems', 'Compliance to Part 11 / Annex 11'],
+    timeline: '4-12 weeks',
+    color: 'from-yellow-500 to-yellow-600'
+  },
+
+  // Personal Mentorship Program (PMP) — concise card-style like others
+  {
+    id: 'pmp',
+    category: 'training',
+    icon: Users,
+    title: 'Personal Mentorship Program (PMP)',
+    shortDesc: '60-day intensive training program for B.Pharm and M.Pharm freshers',
+    fullDesc: '',
+    features: [
+      'Industrial Expert as Personal Mentor',
+      'Live On-field Training Sessions',
+      'Mock Interview & Personality Development',
+      'Email Writing & AI Prompting',
+      'International Regulatory Guidelines',
+      'Lifetime Career Support'
+    ],
+    benefits: ['Industry Readiness', 'Job Placement Support', 'Lifetime Mentorship'],
+    timeline: '60 days',
+    color: 'from-indigo-600 to-indigo-800'
+  }
+]
+
+// categories (same as your original)
+const categories = [
+  { id: 'all', name: 'All Services', icon: Globe },
+  { id: 'regulatory', name: 'Regulatory', icon: Shield },
+  { id: 'technical', name: 'Technical', icon: BookOpen },
+  { id: 'training', name: 'Training', icon: Users },
+  { id: 'support', name: 'Support', icon: Award }
+]
+
 const Services = () => {
   const [activeCategory, setActiveCategory] = useState('all')
 
-  const categories = [
-    { id: 'all', name: 'All Services', icon: Globe },
-    { id: 'regulatory', name: 'Regulatory', icon: Shield },
-    { id: 'technical', name: 'Technical', icon: BookOpen },
-    { id: 'training', name: 'Training', icon: Users },
-    { id: 'support', name: 'Support', icon: Award }
-  ]
-
-  const services = [
-    {
-      id: 1,
-      category: 'regulatory',
-      icon: Shield,
-      title: "Regulatory Affairs & Compliance",
-      shortDesc: "Support for formulation, API, and packaging units to comply with global standards",
-      fullDesc: "Comprehensive regulatory compliance support for pharmaceutical companies to meet international standards including EU-GMP, US-FDA, and WHO-GMP requirements.",
-      features: [
-        "EU-GMP Compliance Support",
-        "US-FDA Regulatory Guidance",
-        "WHO-GMP Standards Implementation",
-        "Quality System Development",
-        "Regulatory Strategy & Dossier Submission (CTD, eCTD, ACTD & regional formats, lifecycle management, regulatory intelligence)",
-        "Regulatory Audit Support (EU-GMP, USFDA, WHO-GMP, ANVISA, TGA, INVIMA)",
-        "Market Access & Regulatory Intelligence (pipeline analysis, pricing & reimbursement support, regulatory monitoring)",
-        "Documentation Review"
-      ],
-      benefits: [
-        'Global Market Access',
-        'Reduced Compliance Risks',
-        'Expert Regulatory Guidance',
-        'Cost-effective Solutions'
-      ],
-      timeline: '4-12 weeks',
-      color: 'from-blue-500 to-blue-700'
-    },
-    {
-      id: 2,
-      category: 'technical',
-      icon: FileText,
-      title: 'Technical Dossier Preparation',
-      shortDesc: 'End-to-end preparation and review of CTD/ACTD dossiers for global submissions',
-      fullDesc: 'Complete technical dossier preparation services including CTD (Common Technical Document) and ACTD (ASEAN Common Technical Document) for pharmaceutical product registrations worldwide.',
-      features: [
-        'CTD Module 1-5 Preparation',
-        'ACTD Compilation',
-        'Quality Overall Summary (QOS)',
-        'Clinical Study Reports',
-        'Non-clinical Study Reports',
-        'Expert Scientific Writing'
-      ],
-      benefits: [
-        'Faster Market Entry',
-        'Regulatory Approval Success',
-        'Cost-effective Documentation',
-        'Expert Technical Writing'
-      ],
-      timeline: '6-16 weeks',
-      color: 'from-green-500 to-green-700'
-    },
-    {
-      id: 3,
-      category: 'support',
-      icon: Search,
-      title: 'Audit Preparation & Compliance Management',
-      shortDesc: 'Pre-audit readiness assessments, gap analysis, and on-site audit support',
-      fullDesc: 'Comprehensive audit preparation services to ensure your facility is ready for regulatory inspections with gap analysis, remediation plans, and on-site support.',
-      features: [
-        'Pre-audit Readiness Assessment',
-        'Gap Analysis & Remediation',
-        'Mock Audit Exercises',
-        'On-site Audit Support',
-        'CAPA Implementation',
-        'Compliance Training'
-      ],
-      benefits: [
-        'Audit Success Assurance',
-        'Risk Mitigation',
-        'Compliance Confidence',
-        'Expert Audit Support'
-      ],
-      timeline: '2-8 weeks',
-      color: 'from-orange-500 to-orange-700'
-    },
-    {
-      id: 4,
-      category: 'technical',
-      icon: Eye,
-      title: 'Pharmacovigilance (PV) Services',
-      shortDesc: 'Setup and management of PV systems including risk management plans and safety data reporting',
-      fullDesc: 'Complete pharmacovigilance services to ensure drug safety monitoring, adverse event reporting, and risk management compliance for pharmaceutical products.',
-      features: [
-        'PV System Setup',
-        'Safety Database Management',
-        'Adverse Event Reporting',
-        'Risk Management Plans',
-        'PSUR/PBRER Preparation',
-        'Signal Detection & Evaluation'
-      ],
-      benefits: [
-        'Drug Safety Assurance',
-        'Regulatory Compliance',
-        'Risk Management',
-        'Global PV Standards'
-      ],
-      timeline: '4-10 weeks',
-      color: 'from-purple-500 to-purple-700'
-    },
-    {
-      id: 5,
-      category: 'technical',
-      icon: Package,
-      title: 'Packaging Technical Services',
-      shortDesc: 'Assistance to primary packaging manufacturers to meet regulatory and quality requirements',
-      fullDesc: 'Specialized technical services for packaging manufacturers to ensure compliance with pharmaceutical packaging standards and regulatory requirements.',
-      features: [
-        'Packaging Material Qualification',
-        'Extractables & Leachables Studies',
-        'Stability Study Design',
-        'Packaging System Development',
-        'Regulatory Submissions',
-        'Quality Specifications'
-      ],
-      benefits: [
-        'Packaging Compliance',
-        'Quality Assurance',
-        'Regulatory Approval',
-        'Technical Excellence'
-      ],
-      timeline: '3-8 weeks',
-      color: 'from-teal-500 to-teal-700'
-    },
-    {
-      id: 6,
-      category: 'training',
-      icon: Users,
-      title: 'Personal Mentorship Program (PMP)',
-      shortDesc: '60-day intensive training program for B.Pharm and M.Pharm freshers',
-      fullDesc: 'Comprehensive mentorship program designed to bridge the gap between academia and industry, providing hands-on training and lifetime career support.',
-      features: [
-        'Industrial Expert as Personal Mentor',
-        'Live On-field Training Sessions',
-        'Mock Interview & Personality Development',
-        'Email Writing & AI Prompting',
-        'International Regulatory Guidelines',
-        'Lifetime Career Support'
-      ],
-      benefits: [
-        'Industry Readiness',
-        'Job Placement Support',
-        'Lifetime Mentorship',
-        'Professional Development'
-      ],
-      timeline: '60 days',
-      color: 'from-indigo-500 to-indigo-700'
-    }
-  ]
-
-  const filteredServices = activeCategory === 'all' 
-    ? services 
+  const filteredServices = activeCategory === 'all'
+    ? services
     : services.filter(service => service.category === activeCategory)
 
   const stats = [
@@ -285,7 +324,7 @@ const Services = () => {
             className="text-center mb-12"
           >
             <h2 className="text-4xl font-heading font-bold text-gray-900 mb-4">
-              {activeCategory === 'all' ? 'All Services' : categories.find(c => c.id === activeCategory)?.name}
+              All Services
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Professional pharmaceutical solutions designed to meet your specific needs
@@ -307,7 +346,7 @@ const Services = () => {
                 <div className="p-6">
                   <div className="flex items-center mb-4">
                     <div className={`w-12 h-12 bg-gradient-to-r ${service.color} rounded-lg flex items-center justify-center mr-4`}>
-                      <service.icon className="text-white" size={24} />
+                      {service.icon ? <service.icon className="text-white" size={24} /> : <FileText className="text-white" size={24} />}
                     </div>
                     <div className="flex-1">
                       <h3 className="text-xl font-bold text-gray-900 group-hover:text-primary-700 transition-colors">
@@ -383,32 +422,23 @@ const Services = () => {
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              {
-                icon: TrendingUp,
-                title: 'Proven Track Record',
-                description: 'Successful project delivery with 100% client satisfaction rate',
-                color: 'from-green-500 to-green-600'
-              },
-              {
-                icon: Users,
-                title: 'Expert Team',
-                description: 'Industry veterans with 15+ years of pharmaceutical experience',
-                color: 'from-blue-500 to-blue-600'
-              },
-              {
-                icon: Zap,
-                title: 'Fast Turnaround',
-                description: 'Efficient processes ensuring timely project completion',
-                color: 'from-purple-500 to-purple-600'
-              },
-              {
-                icon: Globe,
-                title: 'Global Standards',
-                description: 'Compliance with international regulatory requirements',
-                color: 'from-orange-500 to-orange-600'
-              }
-            ].map((item, index) => (
+            {[{
+              icon: TrendingUp,
+              title: 'Proven Track Record',
+              description: 'Successful project delivery with 100% client satisfaction rate'
+            }, {
+              icon: Users,
+              title: 'Expert Team',
+              description: 'Industry veterans with 15+ years of pharmaceutical experience'
+            }, {
+              icon: Zap,
+              title: 'Fast Turnaround',
+              description: 'Efficient processes ensuring timely project completion'
+            }, {
+              icon: Globe,
+              title: 'Global Standards',
+              description: 'Compliance with international regulatory requirements'
+            }].map((item, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
@@ -417,7 +447,7 @@ const Services = () => {
                 viewport={{ once: true }}
                 className="text-center"
               >
-                <div className={`w-16 h-16 mx-auto mb-4 bg-gradient-to-r ${item.color} rounded-full flex items-center justify-center`}>
+                <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center">
                   <item.icon className="text-white" size={28} />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
