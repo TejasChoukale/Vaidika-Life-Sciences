@@ -190,8 +190,8 @@ const Inquiry = () => {
   const filteredOptions = optionsToShow.filter(o => o.toLowerCase().includes(searchTerm.toLowerCase()))
 
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="min-h-screen py-20">
-      <div className="w-full max-w-screen-2xl mx-auto px-6">
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="min-h-screen py-20 overflow-x-hidden">
+      <div className="w-full max-w-screen-xl mx-auto px-4 sm:px-6">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-center mb-12">
@@ -204,7 +204,7 @@ const Inquiry = () => {
             </div>
           </motion.div>
 
-          <div className="grid lg:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Form */}
             <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} className="lg:col-span-2">
               <div className="bg-white rounded-2xl shadow-xl p-8">
@@ -215,14 +215,13 @@ const Inquiry = () => {
                   <p className="text-sm text-gray-600 mb-2 font-medium">
                     Select your profile type to see tailored options:
                   </p>
-                  <div className="flex items-center gap-4">
+
+                  {/* responsive buttons wrapper: stacks on mobile, row on sm+ */}
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-4">
                     <button
                       type="button"
                       onClick={() => handleUserTypeSelect('student')}
-                      className={`px-4 py-3 rounded-md font-semibold transition-shadow ${
-                        userType === 'student' ? 'bg-primary-700 text-white shadow-lg' : 'bg-white text-gray-800 border border-gray-200 hover:shadow-sm'
-                      }`}
-                      style={{ minWidth: 220 }}
+                      className={`w-full sm:w-auto px-4 py-3 rounded-md font-semibold transition-shadow ${userType === 'student' ? 'bg-primary-700 text-white shadow-lg' : 'bg-white text-gray-800 border border-gray-200 hover:shadow-sm'}`}
                     >
                       Academia &amp; Students
                     </button>
@@ -230,19 +229,16 @@ const Inquiry = () => {
                     <button
                       type="button"
                       onClick={() => handleUserTypeSelect('industry')}
-                      className={`px-4 py-3 rounded-md font-semibold transition-shadow ${
-                        userType === 'industry' ? 'bg-primary-700 text-white shadow-lg' : 'bg-white text-gray-800 border border-gray-200 hover:shadow-sm'
-                      }`}
-                      style={{ minWidth: 220 }}
+                      className={`w-full sm:w-auto px-4 py-3 rounded-md font-semibold transition-shadow ${userType === 'industry' ? 'bg-primary-700 text-white shadow-lg' : 'bg-white text-gray-800 border border-gray-200 hover:shadow-sm'}`}
                     >
                       Industry / Professional
                     </button>
 
-                    {/* quick clear if any selected */}
+                    {/* quick clear if any selected - moves below on mobile */}
                     <button
                       type="button"
                       onClick={handleClearSelected}
-                      className="ml-auto text-sm text-gray-500 hover:text-gray-700"
+                      className="mt-2 sm:mt-0 ml-0 sm:ml-auto text-sm text-gray-500 hover:text-gray-700"
                       title="Clear selections"
                     >
                       Clear
@@ -410,8 +406,8 @@ const Inquiry = () => {
                               <span className="text-gray-500">Choose modules (click to open)</span>
                             ) : (
                               selectedModules.map(m => (
-                                <span key={m} className="inline-flex items-center bg-primary-100 text-primary-800 px-2 py-1 rounded-md text-sm">
-                                  <span className="truncate max-w-[260px]">{m}</span>
+                                <span key={m} className="inline-flex items-center bg-primary-100 text-primary-800 px-2 py-1 rounded-md text-sm max-w-[48%] sm:max-w-[260px] break-words">
+                                  <span className="truncate">{m}</span>
                                 </span>
                               ))
                             )}
@@ -426,7 +422,7 @@ const Inquiry = () => {
 
                         {/* Dropdown panel */}
                         {dropdownOpen && (
-                          <motion.div initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} className="absolute z-50 mt-2 w-full bg-white border border-gray-200 rounded-lg shadow-lg">
+                          <motion.div initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} className="absolute z-50 mt-2 left-0 right-0 w-auto sm:w-full bg-white border border-gray-200 rounded-lg shadow-lg">
                             <div className="p-3 border-b border-gray-100 flex items-center gap-2">
                               <SearchIcon size={16} className="text-gray-400" />
                               <input
@@ -454,7 +450,7 @@ const Inquiry = () => {
                                       onChange={() => handleModuleToggle(opt)}
                                       className="mt-1"
                                     />
-                                    <div className="text-sm leading-tight">
+                                    <div className="text-sm leading-tight max-w-full break-words">
                                       <div className="font-medium text-gray-800">{opt}</div>
                                     </div>
                                   </label>
