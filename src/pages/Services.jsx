@@ -417,7 +417,7 @@ const Services = () => {
               Why Choose Our Services?
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We combine deep pharmaceutical expertise with personalized service delivery
+              Patient-first philosophy, regulatory-driven execution, inspection readiness expertise, ethical sourcing, risk mitigation approach, and integrated technical-commercial support.
             </p>
           </motion.div>
 
