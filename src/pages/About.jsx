@@ -198,10 +198,7 @@ const About = () => {
                 <h3 className="text-2xl font-bold text-gray-900 ml-4">Our Mission</h3>
               </div>
               <p className="text-lg text-gray-700 leading-relaxed">
-                To support and skill <strong>1,00,000+ students and professionals</strong> to become 
-                successful contributors in India's pharmaceutical innovation and industrial growth story. 
-                We mentor students, guide them in industrial readiness, and provide them with tools 
-                and knowledge to set up their own businesses.
+                Improve access to quality ICU medicines, reduce healthcare cost burden, strengthen compliance standards, and enable global pharmaceutical expansion.
               </p>
             </motion.div>
 
@@ -219,10 +216,7 @@ const About = () => {
                 <h3 className="text-2xl font-bold text-gray-900 ml-4">Our Vision</h3>
               </div>
               <p className="text-lg text-gray-700 leading-relaxed">
-                To cultivate a generation of <strong>technically sound, entrepreneurial-minded 
-                pharmaceutical professionals</strong> across India. We envision creating new 
-                benchmarks in the life sciences ecosystem and helping our students become 
-                leaders who innovate, inspire, and build value-driven pharmaceutical ventures.
+                To become a trusted pharmaceutical partner delivering affordable critical care medicines while enabling Indian manufacturers to achieve global regulatory excellence.
               </p>
             </motion.div>
           </div>
