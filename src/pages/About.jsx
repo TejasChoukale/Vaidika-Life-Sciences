@@ -81,8 +81,7 @@ const About = () => {
               About Vaidika Life Sciences
             </h1>
             <p className="lead mb-8 max-w-4xl mx-auto opacity-90">
-              A visionary initiative transforming pharmaceutical education and entrepreneurship 
-              across India through expert mentorship and comprehensive industry support.
+           Vaidika Life Sciences is a next-generation pharmaceutical company committed to delivering affordable, high-quality ICU and CCU medicines across India and emerging nations. Our model integrates healthcare accessibility with regulatory excellence and strategic pharmaceutical growth.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <div className="bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full">
