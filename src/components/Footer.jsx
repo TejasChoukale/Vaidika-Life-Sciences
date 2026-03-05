@@ -38,7 +38,7 @@ const Footer = () => {
             </div>
             <p className="text-gray-300 mb-6 leading-relaxed">
               Transforming pharmaceutical education and entrepreneurship through
-              expert mentorship and comprehensive industry support.
+              expert mentorship and comprehensive industry support..
             </p>
             <div className="space-y-3">
               <div className="flex items-center space-x-3 text-gray-300">
