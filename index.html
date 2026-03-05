@@ -4,35 +4,91 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vaidika Life Sciences</title>
+  <title>Vaidika Life Sciences - Life Science Research & Development</title>
+
+  <!-- Canonical URL (tells Google this is the official page) -->
+  <link rel="canonical" href="https://www.vaidikalifesciences.com/" />
+
+  <!-- SEO Meta Tags (CRITICAL for Google Search) -->
+  <meta name="description"
+    content="Vaidika Life Sciences provides cutting-edge life science research and development services. Expert team offering comprehensive solutions in biotechnology and pharmaceutical research." />
+  <meta name="keywords" content="life sciences, research, biotechnology, pharmaceutical, development, India" />
+  <meta name="author" content="Vaidika Life Sciences" />
+  <meta name="language" content="English" />
+  <meta name="robots" content="index, follow" />
 
   <!-- Favicon / Brand Icons -->
   <link rel="icon" type="image/png" href="/favicon.png" />
-
   <link rel="apple-touch-icon" href="/favicon.png" />
 
-  <!-- Social Meta Tags -->
+  <!-- Open Graph Meta Tags (for search results & social sharing) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.vaidikalifesciences.com/" />
+  <meta property="og:title" content="Vaidika Life Sciences - Life Science Research & Development" />
+  <meta property="og:description"
+    content="Vaidika Life Sciences provides cutting-edge life science research and development services. Expert team offering comprehensive solutions in biotechnology and pharmaceutical research." />
   <meta property="og:image" content="https://www.vaidikalifesciences.com/vaidika_life_sciences_logo.jpeg" />
+  <meta property="og:image:secure_url" content="https://www.vaidikalifesciences.com/vaidika_life_sciences_logo.jpeg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="Vaidika Life Sciences" />
+
+  <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://www.vaidikalifesciences.com/" />
+  <meta name="twitter:site" content="@vaidikalifesciences" />
+  <meta name="twitter:title" content="Vaidika Life Sciences - Life Science Research & Development" />
+  <meta name="twitter:description"
+    content="Vaidika Life Sciences provides cutting-edge life science research and development services." />
   <meta name="twitter:image" content="https://www.vaidikalifesciences.com/vaidika_life_sciences_logo.jpeg" />
 
-  <!-- Organization Structured Data -->
+  <!-- Organization Structured Data (JSON-LD) - FOR GOOGLE SEARCH LOGO DISPLAY -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Organization",
     "url": "https://www.vaidikalifesciences.com/",
     "name": "Vaidika Life Sciences",
+    "description": "Cutting-edge life science research and development services",
     "logo": "https://www.vaidikalifesciences.com/vaidika_life_sciences_logo.jpeg",
+    "image": "https://www.vaidikalifesciences.com/vaidika_life_sciences_logo.jpeg",
+    "email": "contact@vaidikalifesciences.com",
+    "telephone": "+91-9892249478",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "IN"
+    },
     "sameAs": [
-      "https://www.linkedin.com/company/vaidika-life-sciences"
+      "https://www.linkedin.com/company/vaidika-life-sciences",
+      "https://www.vaidikalifesciences.com"
     ],
     "contactPoint": [{
       "@type": "ContactPoint",
       "telephone": "+91-9892249478",
       "contactType": "customer service",
-      "areaServed": "IN"
+      "areaServed": "IN",
+      "availableLanguage": "en"
     }]
+  }
+  </script>
+
+  <!-- Website Structured Data (for breadcrumbs and site info) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://www.vaidikalifesciences.com/",
+    "name": "Vaidika Life Sciences",
+    "description": "Life Science Research & Development Services",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://www.vaidikalifesciences.com/?q={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    }
   }
   </script>
 </head>
